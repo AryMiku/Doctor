@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ลงทะเบียนคน</title>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+</head>
+
+<body>
+  <script>
+    var a = 1,b=1,c=1,d=1; 
+  </script>
+  <nav class="navbar ">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img src="images.png" width="112" height="28">
+      </a>
+    </div>
+
+    <div id="navMenubd-example" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link  is-active" href="#">
+            Menu
+          </a>
+          <div class="navbar-dropdown ">
+            <a class="navbar-item " href="user.html">
+              เช็คผลตรวจ
+            </a>
+            <a class="navbar-item " href="query.php">
+              เช็คดูยอดของการลงทะเบียน
+            </a>
+            <a class="navbar-item " href="newuser.php">
+              เพิ่ม User ในระบบ
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-primary" href="login.html">
+                <span class="icon">
+                  <i class="fas fa-sign-out-alt"></i>
+                </span>
+                <span>ออกจากระบบ</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="notification" style="font-size: 50px">
+      <center>กรอกข้อมูล</center>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column" style="background-color:#f7f8f9">
+
+      </div>
+      <div class="column" style="background-color:#f7f8f9">
+        <form action="insertuser.php" method="POST">
+        <div class="field">
+          <label class="label">ชื่อ - นามสกุล ภาษาไทย</label>
+          <input class="input" type="text" placeholder="ex. นายใจดี สุดโลก" name="namethai">
+        </div>
+
+        <div class="field">
+          <label class="label">ชื่อ - นามสกุล ภาษาอังกฤษ</label>
+          <input class="input" type="text" placeholder="ex. jaidee suklok" name="nameeng">
+        </div>
+
+        <div class="field">
+          <label class="label">HN</label>
+          <input class="input" type="text" placeholder="กรุณากรอกข้อมูล" name="HN" required>
+        </div>
+
+        <div class="field">
+          <label class="label">อายุ</label>
+          <input class="input" type="number" name="age" placeholder="กรุณากรอกข้อมูล">
+        </div>
+
+        <div class="field">
+          <label class="label">เพศ</label>
+          <div class="control">
+            <div class="select">
+              <select name="sex">
+                <option value="male">ชาย</option>
+                <option value="female">หญิง</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">เลขที่บัตรประชาชน</label>
+          <input class="input" type="text" placeholder="กรุณากรอกข้อมูล" name="ID" maxlength="13" required>
+        </div>
+
+        <div class="field">
+          <label class="label">ประวัติการเคยได้รับเลือด</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="blood" value="have"> เคย
+            </label>
+            <label class="radio">
+              <input type="radio" name="blood" value="nothave"> ไม่เคย
+            </label>
+            <input class="input" type="text" name="bloodhave" placeholder="ระบุอาการ">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">ประวัติการบริจาคเลือด</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="goblood" value="have"> เคย
+            </label>
+            <label class="radio">
+              <input type="radio" name="goblood" value="nohave"> ไม่เคย
+            </label>
+            <input class="input" type="text" name="gobloodhave" placeholder="ระบุอาการ">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">ทานมังสวิรัติ</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="masa" value="eat"> ทาน
+            </label>
+            <label class="radio">
+              <input type="radio" name="masa" value="noteat"> ไม่ทาน
+            </label>
+            <input class="input" type="text" name="masahave" placeholder="ระบุอาการ">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">คนในครอบครัวเป็นธาลัสซีเมีย</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="fatarus" value="notknow"> ไม่ทราบ
+            </label>
+            <label class="radio">
+              <input type="radio" name="fatarus" value="no"> ไม่ใช่
+            </label>
+            <label class="radio">
+              <input type="radio" name="fatarus" value="other"> อื่นๆ
+            </label>
+            <input class="input" type="text" name="fatarushave" placeholder="ระบุอาการ">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" ่>ช่องทางการตอบกลับ</label>
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" name="comback1" value="email" onclick="clickemail()"> E-mail &nbsp;&nbsp;
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="comback2" value="line" onclick="clickline()"> LINE &nbsp;&nbsp;
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="comback3" value="thaipost" onclick="clickpost()"> ไปรณีย์ &nbsp;&nbsp;
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="comback4" value="day"> รอรับผลวันนี้ &nbsp;&nbsp;
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <div id="email"></div>
+          <div id="line"></div>
+          <div id="post"></div>
+        </div>
+        <br>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link">Submit</button>
+          </div>
+          <div class="control">
+            <button class="button is-text">Cancel</button>
+          </div>
+        </div>
+
+      </form>
+      </div>
+      <div class="column" style="background-color:#f7f8f9">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function clickemail() {
+      if(a == 1){
+          document.getElementById("email").innerHTML = "<input type='email' class='input' name='inputmail' placeholder='กรุณากรอก Email' required>";
+          a = 0
+          }
+      else {
+        document.getElementById("email").innerHTML = "<input type='hidden'>";
+        a = 1
+      }
+    }
+
+    function clickline() {
+      if(b == 1){
+          document.getElementById("line").innerHTML = "<input type='text' class='input' name='inputline' placeholder='กรุณากรอก LINE ID' required>";
+          b = 0
+          }
+      else {
+        document.getElementById("line").innerHTML = "<input type='hidden'>";
+        b = 1
+      }
+    }
+
+    function clickpost() {
+      if(c == 1){
+          document.getElementById("post").innerHTML = "<input type='text' class='input' name='inputadd' placeholder='กรุณากรอกที่อยู่ของคุณ' required>";
+          c = 0
+          }
+      else {
+        document.getElementById("post").innerHTML = "<input type='hidden'>";
+        c = 1
+      }
+    }
+    </script>
+
+  <script src='https://use.fontawesome.com/releases/v5.0.0/js/all.js'></script>
+
+</body>
+
+</html>
