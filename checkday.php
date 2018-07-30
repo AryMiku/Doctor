@@ -71,7 +71,7 @@
             }
           mysqli_query($con,"SET NAMES UTF8");
 
-          $strSQL = "select * from people where date = '$date'";
+          $strSQL = "select * from people where ((date = '$date') AND (checkcheck = 'true'))";
           //echo $strSQL;
        
 
@@ -86,29 +86,39 @@
     <form action="checkday.php" method="post">
     <div class="container">
       <div class="notification has-text-centered">
-        ค้นหาข้อมูล
+        ค้นหาข้อมูล (สีเขียวคือตรวจสอบแล้ว || สีแดงคือยังไม่ตรวจสอบ)
       </div>
 
-    <div class="columns is-mobile">
-        
-        <div class="column" style="background-color:#f7f8f9">
-          <div class="columns">
-            
-            <div class="column" style="margin-left:30%;">
+      <div class="columns is-mobile">
+        <div class="column" style="margin-left:30%;">
             <div class="field has-addons has-text-centered" >
               <div class="control">
-                  <input class="input has-text-centered" type="date" name="date" style="width:400px"  maxlength="13">
+                  <input class="input has-text-centered" type="date" name="date" style="width:400px">
               </div>
               <div class="control">
                   <button class="button is-link">ค้นหา</button>
               </div>
               </div>
-            </div>
-          </div>
-          <div class="columns">
-          </div>
+        </div class="column">
+        <?php 
+          $conunt = "select COUNT(id) AS eiei from people where date = '$date'";
+          //echo $conunt;
+          $objQuery = mysqli_query($con,$conunt);
+          $objResult = mysqli_fetch_array($objQuery);
+          
+        ?>
+          ข้อมูลทั้งหมดในวันที่เลือก <?php echo $objResult['eiei']; ?> จำนวน
+        <div>
+        
+        </div>
+      </div>
+      <br><br>
+
+    <div class="columns is-mobile">
+        
+        <div class="column" style="background-color:#51ff65">
             </form>
-            <br><br>
+            
             <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
   <tr>
     <th width="98"> <div align="center"><a href="checkday.php?sort=1&date=<?php echo $date; ?>">HN</a></div></th>
@@ -142,14 +152,57 @@
         }
     ?>
     </table>
-    <?php
-        mysqli_close($con);
-        ?>
+   
     </div>
+    </div>
+        <br><br><br>
+    <div class="columns is-mobile">
+        <div class="column" style="background-color:#ff1928">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+          <tr>
+            <th width="98"> <div align="center"><a href="checkday.php?sort=1&date=<?php echo $date; ?>">HN</a></div></th>
+            <th width="91"> <div align="center">เลขบัตรประชาชน </div></th>
+            <th width="198"> <div align="center">ชื่อ - นามสกุล </div></th>
+            <th width="97"> <div align="center">อายุ </div></th>
+            <th width="59"> <div align="center">เพศ </div></th>
+            <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
+            <th width="71"> <div align="center">ลบข้อมูล </div></th>
+          </tr>
+        <?php
+            $strSQL2 = "select * from people where ((date = '$date') AND (checkcheck != 'true'))";
+            //echo $strSQL2;
+            $objQuery = mysqli_query($con,$strSQL2);
+            while($objResult = mysqli_fetch_array($objQuery))
+        {
+          if($objResult["sex"] == "male"){
+            $name2 = "ชาย";
+          }
+          else{
+            $name2 = "หญิง";
+          }
+        ?>
+          <tr>
+              <td><div align="center"><?php echo $objResult["HN"];?></div></td>
+              <td><div align="center"><?php echo $objResult["id"];?></div></td>
+              <td><div align="center"><?php echo $objResult["namethai"];?></div></td>
+              <td><div align="center"><?php echo $objResult["age"];?></div></td>
+              <td><div align="center"><?php echo $name2; ?></div></td>
+              <td><div align="center"><a href="queryall.php?id=<?php echo $objResult["id"];?>">ดูข้อมูลเพิ่มเติม</a></div></td>
+              <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td> 
+          </tr>
+      <?php
+          }
+      ?>
+      </table>
+        </div>
     </div>
     
     
     
 </div>
+
+ <?php
+        mysqli_close($con);
+        ?>
 </body>
 </html>

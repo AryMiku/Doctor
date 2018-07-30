@@ -68,6 +68,7 @@
       </nav>
 
   <?php 
+        error_reporting(0);
         $id = $_GET['id'];
         $con=mysqli_connect("localhost","root","","doctor");
         mysqli_query($con,"SET NAMES UTF8");

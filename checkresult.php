@@ -82,31 +82,35 @@
     {
         if($MCV >= 80){
             $text = "มีโอกาสเป็นพาหะ Hb E"; //คำตอบที่ 4
+            $texttext = "";
         }
         else{
             if($MCV >= 70 && $MCV <= 79){
                 if($RBC == "true"){
                     $text =  "มีโอกาสเป็นพาหะ Hb E"; //คำตอบที่ 4
+                    $texttext = "";
                 }
                 else{
                     if($Anisocy < 1 && $Poiki < 1){ //อันนี้เดี๋ยวเช็คคำตอบอีกที
                         $text =  "มีโอกาสเป็นพาหะ Hb E"; //คำตอบที่ 4
+                        $texttext = "";
                     }
                     else{
                         if($body == "Done"){
                             if($HBH == "Found"){
                                 $text =  "เป็นธาลัสซีเมีย ชนิด Hb H Disease"; //คำตอบที่ 5
+                                $texttext = "";
                             }
                             else{
                                 $text = "เป็นพาหะธาลัสซีเมียชนิดรุนแรง"; //คำตอบที่ 6
-                                $texttext = "<h3>คำแนะนำ</h3> β + +hal(Womo)";
-                                $texttext .= "หรือ β -thal / Hb E หรือ Homo E";
+                                $texttext = "คำแนะนำ β-thalassemia/Hb E disease,";
+                                $texttext .= ",Homozygous E,β-thalassemia(Homozygous)";
                             }
                         }
                         else{
                             $text = "เป็นพาหะธาลัสซีเมียชนิดรุนแรง"; //คำตอบที่ 6
-                            $texttext = "<h3>คำแนะนำ</h3> β + +hal(Womo)";
-                            $texttext .= "หรือ β -thal / Hb E หรือ Homo E";
+                            $texttext = "คำแนะนำ β-thalassemia/Hb E disease,";
+                            $texttext .= ",Homozygous E,β-thalassemia(Homozygous)";
                         }
                     }
                 }
@@ -115,6 +119,7 @@
                 if($MCV <= 70){
                     if($Anisocy < 1 && $Poiki < 1){ //อันนี้เดี๋ยวเช็คคำตอบอีกที
                         $text = "มีโอกาสเป็นพาหะ Hb E"; //คำตอบที่ 4
+                        $texttext = "";
                     }
                     else{
                         if($body == "Done"){
@@ -123,14 +128,14 @@
                             }
                             else{
                                 $text = "เป็นพาหะธาลัสซีเมียชนิดรุนแรง"; //คำตอบที่ 6
-                                $texttext = "<h3>คำแนะนำ</h3> β + +hal(Womo)";
-                                $texttext .= "หรือ β -thal / Hb E หรือ Homo E";
+                                $texttext = "คำแนะนำ β-thalassemia/Hb E disease,";
+                                $texttext .= ",Homozygous E,β-thalassemia(Homozygous)";
                             }
                         }
                         else{
                             $text = "เป็นพาหะธาลัสซีเมียชนิดรุนแรง"; //คำตอบที่ 6
-                            $texttext = "<h3>คำแนะนำ</h3> β + +hal(Womo)";
-                            $texttext .= "หรือ β -thal / Hb E หรือ Homo E";
+                            $texttext = "คำแนะนำ β-thalassemia/Hb E disease,";
+                            $texttext .= ",Homozygous E,β-thalassemia(Homozygous)";
                         }
                     }
                 }
@@ -146,18 +151,22 @@
             }
             else{
                 $text = "มีภาวะซีดเล็กน้อยไม่ทราบสาเหตุ";
-                $texttext = "<h3>คำแนะนำ</h3> Irordef : ธาตุเหล็ก";
+                $texttext = "คำแนะนำ Irordef : ธาตุเหล็ก";
                 $texttext .= "หรือ Delta -thal / Hb E หรือ Homo E";
             }
         }
         else{
             if($MCV >= 72 && $MCV < 80){
                 $text = "มีภาวะซีดเล็กน้อย"; //คำตอบที่ 2
+                $texttext = "คำแนะนำ Iron deficiency ";
+                $texttext .= "α-thalassemia 2 trait";
             }
             else{
                 if($MCV < 72){
                     if($Anisocy < 1 && $Poiki < 1){ //อันนี้เดี๋ยวเช็คคำตอบอีกที
-                        $text = "มีโอกาศเป็นพาหะธาลัสซีเมีย";
+                        $text = "มีโอกาศเป็นพาหะธาลัสซีเมีย"; //คำตอบที่ 3
+                        $texttext = "คำแนะนำ α-thalassemia1 1 trait";
+                        $texttext .= "หรือ β-thalassemia trait";
                     }
                     else{
                         $text = "เป็นธาลัสซีเมีย B+ -thal (Homo)"; //คำตอบที่ 6
@@ -293,7 +302,7 @@
         }
         mysqli_query($con,"SET NAMES UTF8");
         $strSQL = "update people set DCIP='$DCIP' ,MCV='$MCV' ,RBC='$RBC2' ,Anisocytasis='$Anisocy2' ,Anisocytasishave='$haveinani' ,poikilocytosis='$Poiki2' ,poikilocytosishave='$havepoiki' 
-        ,inclusion='$body' ,Hbh='$HBH' ,HB='$HB' ,comment='$comment',result='$text' where id='$id'";
+        ,inclusion='$body' ,Hbh='$HBH' ,HB='$HB' ,comment='$comment',result='$text',texttext='$texttext' where id='$id'";
         //echo $strSQL;
         $result = mysqli_query($con,$strSQL);
     ?>

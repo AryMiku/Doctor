@@ -36,6 +36,7 @@
         $inputline = $_POST['inputline'];
         $inputadd = $_POST['inputadd'];
         $usercheck = $_POST['usercheck'];
+        $checkcheck = $_POST['checkcheck'];
         $comback = "$comback1 $comback2 $comback3 $comback4";
         //echo $id;
 
@@ -65,6 +66,7 @@
             $strSQL .=",inputline = '".$inputline."' ";
             $strSQL .=",inputadd = '".$inputadd."' ";
             $strSQL .=",usercheck = '".$usercheck."' ";
+            $strSQL .=",checkcheck = '".$checkcheck."' ";
             $strSQL .="WHERE id = '".$id."' ";
             
             //echo $strSQL;

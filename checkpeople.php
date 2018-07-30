@@ -70,8 +70,8 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
           mysqli_query($con,"SET NAMES UTF8");
-          $strSQL = "SELECT * FROM people WHERE (namethai LIKE '%".$_POST["sserch"]."%' or HN LIKE '%".$_POST["sserch"]."%' or id LIKE '%".$_POST["sserch"]."%')";
-       
+          $strSQL = "SELECT * FROM people WHERE ((namethai LIKE '%".$_POST["sserch"]."%' or HN LIKE '%".$_POST["sserch"]."%' or id LIKE '%".$_POST["sserch"]."%') AND checkcheck !='true')";
+          //echo $strSQL;
 
         if($sort == 1){
           $strSQL = "select * from people where date = '$date2' ORDER BY HN ASC";
@@ -84,7 +84,7 @@
     <form action="checkpeople.php" method="post">
     <div class="container">
       <div class="notification has-text-centered">
-        ค้นหาข้อมูล
+        ค้นหาข้อมูล (ข้อมูลในนี้จะมีแค่คนที่ยังไม่ได้ตรวจเท่านั้น)
       </div>
 
     <div class="columns is-mobile">

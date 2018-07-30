@@ -178,7 +178,7 @@
 
         <div class="field">
           <label class="label" ่>ช่องทางการตอบกลับ</label>
-          <div class="control">
+          <!-- <div class="control">
             <label class="checkbox">
               <input type="checkbox" name="comback1" value="email" onclick="clickemail()"> E-mail &nbsp;&nbsp;
             </label>
@@ -191,17 +191,21 @@
             <label class="checkbox">
               <input type="checkbox" name="comback4" value="day"> รอรับผลวันนี้ &nbsp;&nbsp;
             </label>
-          </div>
+          </div> -->
         </div>
         <div class="field">
-          <input type='email' class='input' name='inputmail' placeholder='กรุณากรอก Email' value='<?php echo $objResult[inputmail]; ?>'>
+        <label class="label">Email</label>
+          <input type='email' class='input' name='inputmail' placeholder='Email' value='<?php echo $objResult[inputmail]; ?>'>
+          <label class="label">LINE</label>
           <input type='text' class='input' name='inputline' placeholder='กรุณากรอก LINE ID' value='<?php echo $objResult[inputline]; ?>'>
+          <label class="label">ที่อยู่ของคุณ</label>
           <input type='text' class='input' name='inputadd' placeholder='กรุณากรอกที่อยู่ของคุณ' value='<?php echo $objResult[inputadd]; ?>'>
         </div>
         
         <div class="field">
           <label class="label" style="color : red;">ผู้ตรวจสอบข้อมูล</label>
           <input class="input" type="text" placeholder="กรุณากรอกข้อมูล" name="usercheck" required>
+          <input type="hidden" value="true" name="checkcheck">
         </div>
 
         <br>
