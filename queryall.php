@@ -271,7 +271,7 @@
 <script>
 function myFunction() {
     //window.location = "print.php?id=<?php echo $id ?>";
-    window.open('print.php?id=<?php echo $id ?>' , 'mypopup' , 'menubar=yes,toolbar=no,location=no,scrollbars=no, status=no,resizable=no,width=1000,height=700,top=20,left=250 ' )
+    window.open('print.php?id=<?php echo $id ?>' , 'mypopup' , 'menubar=yes,toolbar=no,location=no,scrollbars=no, status=no,resizable=no,width=1300,height=700,top=20,left=150 ' )
         mypopup.focus();
 }
 
