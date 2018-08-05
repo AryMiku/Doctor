@@ -25,7 +25,7 @@
                 <a class="navbar-item " href="index2.html">
                     หน้าหลัก
                 </a>
-                <a class="navbar-item " href="checkpeople.php">
+                <a class="navbar-item " href="checkpeople.html">
                   เช็คผลตรวจ
                 </a>
                 <a class="navbar-item " href="checkday.php">
@@ -42,7 +42,7 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <a class="button is-primary" href="login.html">
+                  <a class="button is-primary" href="index.html">
                     <span class="icon">
                       <i class="fas fa-sign-out-alt"></i>
                     </span>
@@ -71,7 +71,7 @@
             }
           mysqli_query($con,"SET NAMES UTF8");
 
-          $strSQL = "select * from people where ((date = '$date') AND (checkcheck = 'true'))";
+          $strSQL3 = "select * from people where ((date = '$date') AND (checkcheck = 'true'))";
           //echo $strSQL;
        
 
@@ -127,9 +127,11 @@
     <th width="97"> <div align="center">อายุ </div></th>
     <th width="59"> <div align="center">เพศ </div></th>
     <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
+    <th width="71"> <div align="center">แก้ไขข้อมูล </div></th>
     <th width="71"> <div align="center">ลบข้อมูล </div></th>
   </tr>
         <?php
+            $objQuery = mysqli_query($con,$strSQL3);
             while($objResult = mysqli_fetch_array($objQuery))
         {
           if($objResult["sex"] == "male"){
@@ -146,6 +148,7 @@
         <td><div align="center"><?php echo $objResult["age"];?></div></td>
         <td><div align="center"><?php echo $name2; ?></div></td>
         <td><div align="center"><a href="queryall.php?id=<?php echo $objResult["id"];?>">ดูข้อมูลเพิ่มเติม</a></div></td>
+        <td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td>
         <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td> 
     </tr>
     <?php
@@ -166,6 +169,7 @@
             <th width="97"> <div align="center">อายุ </div></th>
             <th width="59"> <div align="center">เพศ </div></th>
             <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
+            <th width="71"> <div align="center">แก้ไขข้อมูล </div></th>
             <th width="71"> <div align="center">ลบข้อมูล </div></th>
           </tr>
         <?php
@@ -188,6 +192,7 @@
               <td><div align="center"><?php echo $objResult["age"];?></div></td>
               <td><div align="center"><?php echo $name2; ?></div></td>
               <td><div align="center"><a href="queryall.php?id=<?php echo $objResult["id"];?>">ดูข้อมูลเพิ่มเติม</a></div></td>
+              <td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td>
               <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td> 
           </tr>
       <?php

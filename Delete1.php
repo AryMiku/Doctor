@@ -23,7 +23,7 @@
             //echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
         // Perform queries 
-        $strSQL = "delete FROM people WHERE id = $id";
+        $strSQL = "delete FROM people WHERE id = '$id'";
         //echo $strSQL;
         $result = mysqli_query($con,$strSQL);
         mysqli_close($con);

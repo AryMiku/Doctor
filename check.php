@@ -15,7 +15,7 @@
     $id = $_GET['id'];
   ?>
 
-  <nav class="navbar ">
+<nav class="navbar ">
     <div class="navbar-brand">
       <a class="navbar-item">
         <img src="images.png" width="112" height="28">
@@ -61,6 +61,7 @@
           </div>
         </div>
       </nav>
+      
   <form action="checkresult.php" method="post">
     <div class="container">
       <div class="notification">

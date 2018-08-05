@@ -29,49 +29,52 @@
             //echo $objResult["blood"];
             ?>
             
-  <nav class="navbar ">
+            <nav class="navbar ">
     <div class="navbar-brand">
       <a class="navbar-item">
         <img src="images.png" width="112" height="28">
       </a>
     </div>
 
-    <div id="navMenubd-example" class="navbar-menu">
-      <div class="navbar-start">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link  is-active" href="#">
-            Menu
-          </a>
-          <div class="navbar-dropdown ">
-            <a class="navbar-item " href="user.html">
-              เช็คผลตรวจ
-            </a>
-            <a class="navbar-item " href="query.php">
-              เช็คดูยอดของการลงทะเบียน
-            </a>
-            <a class="navbar-item " href="newuser.php">
-              เพิ่ม User ในระบบ
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <a class="button is-primary" href="login.html">
-                <span class="icon">
-                  <i class="fas fa-sign-out-alt"></i>
-                </span>
-                <span>ออกจากระบบ</span>
+            <div id="navMenubd-example" class="navbar-menu">
+        <div class="navbar-start">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link  is-active" href="#">
+                Menu
               </a>
-            </p>
+              <div class="navbar-dropdown ">
+                <a class="navbar-item " href="index2.html">
+                    หน้าหลัก
+                </a>
+                <a class="navbar-item " href="checkpeople.php">
+                  เช็คผลตรวจ
+                </a>
+                <a class="navbar-item " href="checkday.php">
+                  เช็คดูยอดของการลงทะเบียน
+                </a>
+                <a class="navbar-item " href="newuser.php">
+                  เพิ่ม User ในระบบ
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <a class="button is-primary" href="login.html">
+                    <span class="icon">
+                      <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    <span>ออกจากระบบ</span>
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </nav>
+      </nav>
 
 
   <div class="container">
@@ -204,7 +207,7 @@
         
         <div class="field">
           <label class="label" style="color : red;">ผู้ตรวจสอบข้อมูล</label>
-          <input class="input" type="text" placeholder="กรุณากรอกข้อมูล" name="usercheck" required>
+          <input class="input" type="text" placeholder="กรุณากรอกข้อมูล" name="usercheck" value='<?php echo $objResult[usercheck]; ?>' required>
           <input type="hidden" value="true" name="checkcheck">
         </div>
 

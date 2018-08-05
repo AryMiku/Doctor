@@ -55,31 +55,7 @@
         </div>
       </nav>
 
-  <?php 
-        error_reporting(0);
-        $id = $_POST['id'];
-        $date = $_POST['date'];
-        $name = $_POST['name'];
-        $HN = $_POST['HN'];
-        $sort = $_GET['sort'];
-        $date2 = $_GET['date'];
-        $con=mysqli_connect("localhost","root","","doctor");
-            // Check connection
-            if (mysqli_connect_errno())
-            {
-                echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            }
-          mysqli_query($con,"SET NAMES UTF8");
-          $strSQL = "select * from people where HN = '$HN' or namethai = '$name' or id = '$id'";
-          //echo $strSQL;
-
-        if($sort == 1){
-          $strSQL = "select * from people where date = '$date2' ORDER BY HN ASC";
-        }
-        
-        //echo $strSQL;
-        $objQuery = mysqli_query($con,$strSQL);
-    ?>
+ 
 
     <form action="checkpeople.php" method="post">
     <div class="container">
@@ -130,44 +106,7 @@
           </div>
             </form>
             <br><br>
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-  <tr>
-    <th width="98"> <div align="center"><a href="checkday.php?sort=1&date=<?php echo $date; ?>">HN</a></div></th>
-    <th width="91"> <div align="center">เลขบัตรประชาชน </div></th>
-    <th width="198"> <div align="center">ชื่อ - นามสกุล </div></th>
-    <th width="97"> <div align="center">อายุ </div></th>
-    <th width="59"> <div align="center">เพศ </div></th>
-    <th width="71"> <div align="center">ตรวจข้อมูล </div></th>
-    <th width="71"> <div align="center">ลบข้อมูล </div></th>
-    <th width="71"> <div align="center">สถานะ </div></th>
-  </tr>
-        <?php
-            while($objResult = mysqli_fetch_array($objQuery))
-        {
-          if($objResult["sex"] == "male"){
-            $name2 = "ชาย";
-          }
-          else{
-            $name2 = "หญิง";
-          }
-        ?>
-    <tr>
-        <td><div align="center"><?php echo $objResult["HN"];?></div></td>
-        <td><div align="center"><?php echo $objResult["id"];?></div></td>
-        <td><div align="center"><?php echo $objResult["namethai"];?></div></td>
-        <td><div align="center"><?php echo $objResult["age"];?></div></td>
-        <td><div align="center"><?php echo $name2; ?></div></td>
-        <td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td>
-        <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td>
-        <td><div align="center" style="<?php if($objResult["checkcheck"] == 'true') echo "background-color: #51ff65;"; else echo "background-color: red;"; ?>"><?php if($objResult["checkcheck"] == 'true') echo "ตรวจสอบแล้ว"; else echo "ยังไม่ตรวจสอบ"; ?></div></td> 
-    </tr>
-    <?php
-        }
-    ?>
-    </table>
-    <?php
-        mysqli_close($con);
-        ?>
+            
     </div>
     </div>
     
