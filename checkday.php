@@ -71,7 +71,7 @@
             }
           mysqli_query($con,"SET NAMES UTF8");
 
-          $strSQL3 = "select * from people where ((date = '$date') AND (checkcheck = 'true'))";
+          $strSQL3 = "select * from people where ((date = '$date') AND (checkcheck = 'true')) order by abs(HN) ASC";
           //echo $strSQL;
        
 
@@ -173,7 +173,7 @@
             <th width="71"> <div align="center">ลบข้อมูล </div></th>
           </tr>
         <?php
-            $strSQL2 = "select * from people where ((date = '$date') AND (checkcheck != 'true'))";
+            $strSQL2 = "select * from people where ((date = '$date') AND (checkcheck != 'true')) order by abs(HN) ASC";
             //echo $strSQL2;
             $objQuery = mysqli_query($con,$strSQL2);
             while($objResult = mysqli_fetch_array($objQuery))
