@@ -70,7 +70,12 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
           mysqli_query($con,"SET NAMES UTF8");
-          $strSQL = "select * from people where HN = '$HN' or namethai = '$name' or id = '$id'";
+          if($name == ""){
+            $strSQL = "select * from people where HN = '$HN' or namethai = '$name' or id = '$id'";
+          }
+          else{
+            $strSQL = "select * from people where namethai like '%$name%'";
+          }
           //echo $strSQL;
 
         if($sort == 1){
