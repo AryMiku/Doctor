@@ -30,8 +30,8 @@
 </style>
 <body>
     <?php 
-        $id = $_GET['id'];
-        //echo $id;
+        $id = $_POST['id'];
+        $nameprint = $_POST['nameprint'];
         $con=mysqli_connect("localhost","root","","doctor");
         // Check connection
         if (mysqli_connect_errno())
@@ -139,11 +139,11 @@
                         <td class="text-center"><?php echo $objResult["result"]; ?></td>
                         </tr>
                         <tr>
-                        <th scope="row">รายละเอียด</th>
+                        <th scope="row" class="text-center">รายละเอียด</th>
                         <td><?php echo $text1; ?></td>
                         </tr>
                         <tr>
-                        <th scope="row">คำแนะนำ</th>
+                        <th scope="row" class="text-center">คำแนะนำ</th>
                         <td><?php echo $text2; ?></td>
                         </tr>
                     </tbody>
@@ -153,8 +153,7 @@
         <br><br><br>
         <div id="fisrt" class="float-right">
             ลงชื่อ <br><br>
-            ..................................................................................................
-
+            <?php echo $nameprint; ?> <br><br
             <div id="non-printable"><button onclick="myFunction()">print</button></div>
         </div>
         

@@ -20,56 +20,12 @@
 </head>
 <body>
 
-<nav class="navbar ">
-    <div class="navbar-brand">
-      <a class="navbar-item">
-        <img src="images.png" width="112" height="28">
-      </a>
-    </div>
 
-            <div id="navMenubd-example" class="navbar-menu">
-        <div class="navbar-start">
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link  is-active" href="#">
-                Menu
-              </a>
-              <div class="navbar-dropdown ">
-                <a class="navbar-item " href="index2.html">
-                    หน้าหลัก
-                </a>
-                <a class="navbar-item " href="checkpeople.php">
-                  เช็คผลตรวจ
-                </a>
-                <a class="navbar-item " href="checkday.php">
-                  เช็คดูยอดของการลงทะเบียน
-                </a>
-                <a class="navbar-item " href="newuser.php">
-                  เพิ่ม User ในระบบ
-                </a>
-              </div>
-            </div>
-          </div>
-    
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <a class="button is-primary" href="login.html">
-                    <span class="icon">
-                      <i class="fas fa-sign-out-alt"></i>
-                    </span>
-                    <span>ออกจากระบบ</span>
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
 
   <?php 
         error_reporting(0);
-        $id = $_GET['id'];
+        $id = $_POST['id'];
+        $nameprint = $_POST['nameprint'];
         $con=mysqli_connect("localhost","root","","doctor");
         mysqli_query($con,"SET NAMES UTF8");
         $strSQL = "select * from people where id = $id";
@@ -123,7 +79,7 @@
             $comeback2 = "ส่งกลับทาง Email, LINE, ไปรณีย์ และ รอรับผล ";
         }
     ?>
-
+        <br><br>
     <div class="container">
       <div class="notification has-text-centered">
         รายละเอียดข้อมูล
@@ -257,10 +213,13 @@
                 <td class="has-text-centered">ผลลัพธ์ของคุณ</td>
                 <td class="has-text-centered"><?php echo $objResult['result']?></td>
             </tr>
+            <tr>
+                <td class="has-text-centered">ลงชื่อโดย</td>
+                <td class="has-text-centered"><?php echo $nameprint;?></td>
+            </tr>
         </table>
         <div id="non-printable" align="center">  
-            <span><button class="button is-primary is-outlined" onclick="myFunction2()">Print All</button></span>
-            <span><button class="button is-primary is-outlined" onclick="myFunction()">Print User</button></span>
+            
         </div>
     <?php mysqli_close($con); ?>
         </div>
@@ -269,15 +228,7 @@
     </div>
 
 <script>
-function myFunction() {
-    window.open('checkprint.php?id=<?php echo $id ?>' , 'mypopup' , 'menubar=yes,toolbar=no,location=no,scrollbars=no, status=no,resizable=no,width=1300,height=700,top=20,left=150 ' )
-        mypopup.focus();
-}
-
-function myFunction2() {
-    window.open('checkprint2.php?id=<?php echo $id ?>' , 'mypopup' , 'menubar=yes,toolbar=no,location=no,scrollbars=no, status=no,resizable=no,width=1300,height=700,top=20,left=150 ' )
-        mypopup.focus();
-}
+    window.print();
 </script>
     
 </div>
