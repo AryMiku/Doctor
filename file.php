@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +40,12 @@
         {
             $check = "1" ;
         }
-     
+
+        $strSQL2 = "SELECT * FROM user WHERE username = '".$_POST['username']."' 
+        and password = '".$_POST['password']."'";
+        $objQuery2 = mysqli_query($con,$strSQL2);
+        $objResult2 = mysqli_fetch_array($objQuery2);
+        $_SESSION["super"] = $objResult2['super'];
         mysqli_close($con);
     ?>
     

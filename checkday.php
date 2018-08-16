@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +67,7 @@
         $HN = $_POST['HN'];
         $sort = $_GET['sort'];
         $date2 = $_GET['date'];
+        
         $con=mysqli_connect("localhost","root","","doctor");
             // Check connection
             if (mysqli_connect_errno())
@@ -127,8 +132,8 @@
     <th width="97"> <div align="center">อายุ </div></th>
     <th width="59"> <div align="center">เพศ </div></th>
     <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
-    <th width="71"> <div align="center">แก้ไขข้อมูล </div></th>
-    <th width="71"> <div align="center">ลบข้อมูล </div></th>
+    <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">แก้ไขข้อมูล </div></th> <?php }; ?>
+    <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">ลบข้อมูล </div></th> <?php }; ?>
   </tr>
         <?php
             $objQuery = mysqli_query($con,$strSQL3);
@@ -148,8 +153,8 @@
         <td><div align="center"><?php echo $objResult["age"];?></div></td>
         <td><div align="center"><?php echo $name2; ?></div></td>
         <td><div align="center"><a href="queryall.php?id=<?php echo $objResult["id"];?>">ดูข้อมูลเพิ่มเติม</a></div></td>
-        <td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td>
-        <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td> 
+        <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td><?php }; ?>
+        <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td><?php }; ?> 
     </tr>
     <?php
         }
@@ -169,8 +174,8 @@
             <th width="97"> <div align="center">อายุ </div></th>
             <th width="59"> <div align="center">เพศ </div></th>
             <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
-            <th width="71"> <div align="center">แก้ไขข้อมูล </div></th>
-            <th width="71"> <div align="center">ลบข้อมูล </div></th>
+            <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">แก้ไขข้อมูล </div></th><?php }; ?>
+            <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">ลบข้อมูล </div></th><?php }; ?>
           </tr>
         <?php
             $strSQL2 = "select * from people where ((date = '$date') AND (checkcheck != 'true')) order by abs(HN) ASC";
@@ -192,8 +197,8 @@
               <td><div align="center"><?php echo $objResult["age"];?></div></td>
               <td><div align="center"><?php echo $name2; ?></div></td>
               <td><div align="center"><a href="queryall.php?id=<?php echo $objResult["id"];?>">ดูข้อมูลเพิ่มเติม</a></div></td>
-              <td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td>
-              <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td> 
+              <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td><?php }; ?>
+              <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td> <?php }; ?>
           </tr>
       <?php
           }

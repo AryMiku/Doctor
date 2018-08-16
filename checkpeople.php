@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,8 +146,8 @@
     <th width="198"> <div align="center">ชื่อ - นามสกุล </div></th>
     <th width="97"> <div align="center">อายุ </div></th>
     <th width="59"> <div align="center">เพศ </div></th>
-    <th width="71"> <div align="center">ตรวจข้อมูล </div></th>
-    <th width="71"> <div align="center">ลบข้อมูล </div></th>
+    <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">ตรวจข้อมูล </div></th> <?php }; ?>
+    <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">ลบข้อมูล </div></th> <?php }; ?>
     <th width="71"> <div align="center">สถานะ </div></th>
   </tr>
         <?php
@@ -162,8 +166,8 @@
         <td><div align="center"><?php echo $objResult["namethai"];?></div></td>
         <td><div align="center"><?php echo $objResult["age"];?></div></td>
         <td><div align="center"><?php echo $name2; ?></div></td>
-        <td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td>
-        <td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td>
+        <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td><?php }; ?>
+        <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td><?php }; ?>
         <td><div align="center" style="<?php if($objResult["checkcheck"] == 'true') echo "background-color: #51ff65;"; else echo "background-color: red;"; ?>"><?php if($objResult["checkcheck"] == 'true') echo "ตรวจสอบแล้ว"; else echo "ยังไม่ตรวจสอบ"; ?></div></td> 
     </tr>
     <?php
