@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -157,7 +161,7 @@
                 }
                 else{
                     if($MCV < 72){
-                        if($Anisocy < 2 && $Poiki < 2){
+                        if($Anisocy < 3 && $Poiki < 3){
                             $text = "มีโอกาสเป็นพาหะธาลัสซีเมียหรือมีภาวะซีดเนื่องจากการพร่องธาตุเหล็ก";
                             $texttext = "";
                         }
@@ -182,7 +186,7 @@
             }
             else{
                 if($MCV < 72){
-                    if($Anisocy < 2 && $Poiki < 2){
+                    if($Anisocy < 3 && $Poiki < 3){
                         $text = "มีโอกาสเป็นพาหะธาลัสซีเมียหรือมีภาวะซีดเนื่องจากการพร่องธาตุเหล็ก";
                         $texttext = "";
                     }
@@ -234,9 +238,9 @@
                 <a class="navbar-item " href="checkday.php">
                   เช็คดูยอดของการลงทะเบียน
                 </a>
-                <a class="navbar-item " href="newuser.php">
+                <?php if($_SESSION["super"] == "1"){ ?><a class="navbar-item " href="newuser.php">
                   เพิ่ม User ในระบบ
-                </a>
+                </a><?php } ?>
               </div>
             </div>
           </div>

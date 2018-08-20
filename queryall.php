@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +38,7 @@
                 Menu
               </a>
               <div class="navbar-dropdown ">
-                <a class="navbar-item " href="index2.html">
+                <a class="navbar-item " href="index2.php">
                     หน้าหลัก
                 </a>
                 <a class="navbar-item " href="checkpeople.php">
@@ -43,9 +47,9 @@
                 <a class="navbar-item " href="checkday.php">
                   เช็คดูยอดของการลงทะเบียน
                 </a>
-                <a class="navbar-item " href="newuser.php">
+                <?php if($_SESSION["super"] == "1"){ ?><a class="navbar-item " href="newuser.php">
                   เพิ่ม User ในระบบ
-                </a>
+                </a><?php } ?>
               </div>
             </div>
           </div>

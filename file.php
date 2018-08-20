@@ -54,7 +54,7 @@ session_start();
         var bank = <?php echo $check; ?>;
         if (bank == "1"){
             bank = "รหัสผ่านถูกต้อง"
-            setTimeout("location.href = 'index2.html';",1000);
+            setTimeout("location.href = 'index2.php';",1000);
         }
         else{
             bank = "รหัสผ่านไม่ถูกต้อง"
