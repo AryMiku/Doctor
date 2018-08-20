@@ -1,3 +1,11 @@
+<?php
+// Start the session
+session_start();
+?>
+<?php 
+  if($_SESSION["super"] == "1" || $_SESSION["super"] == "0")
+  {
+?>
 <!DOCTYPE html>
 <html>
 
@@ -38,9 +46,9 @@
                 <a class="navbar-item " href="checkday.php">
                   เช็คดูยอดของการลงทะเบียน
                 </a>
-                <a class="navbar-item " href="newuser.php">
+                <?php if($_SESSION["super"] == "1"){ ?><a class="navbar-item " href="newuser.php">
                   เพิ่ม User ในระบบ
-                </a>
+                </a><?php } ?>
               </div>
             </div>
           </div>
@@ -187,3 +195,9 @@
 </body>
 
 </html>
+<?php 
+  }
+  else{
+    header( "location: index.html" );
+  };
+?>

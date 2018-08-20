@@ -2,6 +2,10 @@
 // Start the session
 session_start();
 ?>
+<?php 
+  if($_SESSION["super"] == "1" || $_SESSION["super"] == "0")
+  {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,3 +90,9 @@ session_start();
       </div>
 </body>
 </html>
+<?php 
+  }
+  else{
+    header( "location: index.html" );
+  };
+?>
