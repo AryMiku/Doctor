@@ -62,7 +62,7 @@ session_start();
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <a class="button is-primary" href="login.html">
+                  <a class="button is-primary" href="index.html">
                     <span class="icon">
                       <i class="fas fa-sign-out-alt"></i>
                     </span>

@@ -153,7 +153,7 @@
         <br><br><br>
         <div id="fisrt" class="float-right">
             ลงชื่อ <br><br>
-            <?php echo $nameprint; ?> <br><br
+            <?php echo $nameprint; ?> <br><br>
             <div id="non-printable"><button onclick="myFunction()">print</button></div>
         </div>
         

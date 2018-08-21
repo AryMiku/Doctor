@@ -97,11 +97,20 @@ session_start();
               <input class="input" type="number" name="MCV" min="0" max="200" step="0.1" placeholder="กรุณากรอกเป็นตัวเลข" required>
             </div>
 
+            
+
             <div class="field">
-              <label class="label">Normochromic Normocytic (RBC)</label>
-              <label class="checkbox">
-                <input type="checkbox" name="RBC" value="true"> Yes or No
-              </label>
+            <label class="label">Normochromic Normocytic (RBC)</label>
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="RBC" value="true">
+                  Yes
+                </label>
+                <label class="radio">
+                  <input type="radio" name="RBC" value="false">
+                  No
+                </label>
+              </div>
             </div>
 
             <div class="field">
@@ -145,8 +154,8 @@ session_start();
               <div class="control">
                 <div class="select">
                   <select name="body">
-                    <option value="Done">Done</option>
                     <option value="NotDone">Not Done</option>
+                    <option value="Done">Done</option>
                   </select>
                 </div>
               </div>
@@ -157,8 +166,8 @@ session_start();
               <div class="control">
                 <div class="select">
                   <select name="HBH">
-                    <option value="Found">Found</option>
                     <option value="NotFound">Not Found</option>
+                    <option value="Found">Found</option>
                   </select>
                 </div>
               </div>

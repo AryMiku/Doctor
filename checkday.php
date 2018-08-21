@@ -133,7 +133,7 @@ session_start();
     <th width="98"> <div align="center"><a href="checkday.php?sort=1&date=<?php echo $date; ?>">HN</a></div></th>
     <th width="91"> <div align="center">เลขบัตรประชาชน </div></th>
     <th width="198"> <div align="center">ชื่อ - นามสกุล </div></th>
-    <th width="97"> <div align="center">อายุ </div></th>
+    <th width="59"> <div align="center">อายุ </div></th>
     <th width="59"> <div align="center">เพศ </div></th>
     <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
     <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">แก้ไขข้อมูล </div></th> <?php }; ?>
