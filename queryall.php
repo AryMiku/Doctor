@@ -265,6 +265,10 @@ session_start();
                 <td class="has-text-centered">ผลลัพธ์ของคุณ</td>
                 <td class="has-text-centered"><?php echo $objResult['result']?></td>
             </tr>
+            <tr>
+                <td class="has-text-centered">ผู้ตรวจสอบ</td>
+                <td class="has-text-centered"><?php echo $objResult['usercheck']?></td>
+            </tr>
         </table>
         <div id="non-printable" align="center">  
             <span><button class="button is-primary is-outlined" onclick="myFunction2()">Print All</button></span>
