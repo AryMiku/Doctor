@@ -225,10 +225,10 @@ session_start();
                 <td class="has-text-centered">MCV</td>
                 <td class="has-text-centered"><?php echo $objResult['MCV']?></td>
             </tr>
-            <tr>
+            <?php if($objResult['RBC'] == "true"){ ?><tr>
                 <td class="has-text-centered">RBC</td>
-                <td class="has-text-centered"><?php echo $objResult['RBC']?></td>
-            </tr>
+                <td class="has-text-centered"> normocytic </td>
+            </tr><?php } ?>
             <tr>
                 <td class="has-text-centered">Anisocytasis</td>
                 <td class="has-text-centered"><?php echo $objResult['Anisocytasis']?></td>

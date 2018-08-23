@@ -32,11 +32,11 @@ session_start();
     $comment = $_POST['comment'];
     $id = $_POST['id'];
     //echo $id;
-    if($RBC == ""){
-        $RBC2 = "normocytic";
+    if($RBC == "true"){
+        $RBC2 = "true";
     }
     else{
-        $RBC2 = "normochormic";
+        $RBC2 = "false";
     }
 
     if($Anisocy == "0"){
@@ -287,10 +287,10 @@ session_start();
                 <td class="has-text-centered">MCV</td>
                 <td class="has-text-centered"><?php echo $MCV; ?></td>
                </tr>
-               <tr>
+               <?php if($RBC2 == "true"){ ?><tr>
                 <td class="has-text-centered">RBC</td>
-                <td class="has-text-centered"><?php echo $RBC2; ?></td>
-               </tr>
+                <td class="has-text-centered"> normocytic </td>
+               </tr> <?php } ?>
                <tr>
                 <td class="has-text-centered">Anisocytasis </td>
                 <td class="has-text-centered"><?php echo $Anisocy2; ?></td>
