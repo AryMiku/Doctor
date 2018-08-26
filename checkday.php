@@ -13,8 +13,13 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>กรอกประวัติ</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
+<style>
+  .blackiconcolor {color:green;}
+  .blackiconcolor2 {color:red;}
+</style>
 <body>
 <nav class="navbar ">
     <div class="navbar-brand">
@@ -138,6 +143,7 @@ session_start();
     <th width="71"> <div align="center">ดูข้อมูลเพิ่มเติม </div></th>
     <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">แก้ไขข้อมูล </div></th> <?php }; ?>
     <?php if($_SESSION["super"] == "1"){ ?><th width="71"> <div align="center">ลบข้อมูล </div></th> <?php }; ?>
+    <th width="10"> <div align="center">สถานะการส่ง </div></th>
   </tr>
         <?php
             $objQuery = mysqli_query($con,$strSQL3);
@@ -158,7 +164,9 @@ session_start();
         <td><div align="center"><?php echo $name2; ?></div></td>
         <td><div align="center"><a href="queryall.php?id=<?php echo $objResult["id"];?>">ดูข้อมูลเพิ่มเติม</a></div></td>
         <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="edit.php?id=<?php echo $objResult["id"];?>">แก้ไข</a></div></td><?php }; ?>
-        <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td><?php }; ?> 
+        <?php if($_SESSION["super"] == "1"){ ?><td><div align="center"><a href="Delete1.php?id=<?php echo $objResult["id"];?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');">ลบข้อมูล</a></div></td><?php }; ?>
+        <?php if($objResult["sent"] == "true") {?><td><div align="center"><a href="updatesent.php?id=<?php echo $objResult["id"];?>"><i class="far fa-check-circle blackiconcolor"></i></a></div></td> <?php } ?>
+        <?php if($objResult["sent"] == "false") {?><td><div align="center"><a href="updatesent.php?id=<?php echo $objResult["id"];?>"><i class="far fa-times-circle blackiconcolor2"></i></a></div></td> <?php } ?>
     </tr>
     <?php
         }

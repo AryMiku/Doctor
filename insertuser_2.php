@@ -45,8 +45,8 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
             mysqli_query($con,"SET NAMES UTF8");
-            $strSQL = "insert into people (namethai,nameeng,HN,age,sex,id,blood,bloodhave,goblood,gobloodhave,masa,masahave,fatarus,fatarushave,comeback,date,inputmail,inputline,inputadd) VALUES (
-                '$namethai','$nameeng','$HN','$age','$sex','$id','$blood','$blood่have','$goblood','$gobloodhave','$masa','$masahave','$fatarus','$fatarushave','$comback',now(),'$inputmail','$inputline','$inputadd'
+            $strSQL = "insert into people (namethai,nameeng,HN,age,sex,id,blood,bloodhave,goblood,gobloodhave,masa,masahave,fatarus,fatarushave,comeback,date,inputmail,inputline,inputadd,sent) VALUES (
+                '$namethai','$nameeng','$HN','$age','$sex','$id','$blood','$blood่have','$goblood','$gobloodhave','$masa','$masahave','$fatarus','$fatarushave','$comback',now(),'$inputmail','$inputline','$inputadd','false'
             )";
             //echo $strSQL;
             $result = mysqli_query($con,$strSQL);
