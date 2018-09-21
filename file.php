@@ -32,6 +32,7 @@ session_start();
         and password = '".$_POST['password']."'";
         $objQuery = mysqli_query($con,$strSQL);
         $objResult = mysqli_fetch_array($objQuery);
+        $_SESSION["super"] = $objResult['super'];
         if(!$objResult)
         {
            $check = "0"  ;
@@ -40,12 +41,7 @@ session_start();
         {
             $check = "1" ;
         }
-
-        $strSQL2 = "SELECT * FROM user WHERE username = '".$_POST['username']."' 
-        and password = '".$_POST['password']."'";
-        $objQuery2 = mysqli_query($con,$strSQL2);
-        $objResult2 = mysqli_fetch_array($objQuery2);
-        $_SESSION["super"] = $objResult2['super'];
+        $_SESSION["super"] = $objResult['super'];
         mysqli_close($con);
     ?>
     
