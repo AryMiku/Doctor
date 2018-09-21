@@ -230,23 +230,23 @@ session_start();
                 <td class="has-text-centered"> normocytic </td>
             </tr><?php } ?>
             <tr>
-                <td class="has-text-centered">Anisocytasis</td>
+                <td class="has-text-centered">Anisocytosis</td>
                 <td class="has-text-centered"><?php echo $objResult['Anisocytasis']?></td>
             </tr>
             <tr>
-                <td class="has-text-centered">รายละเอียด Anisocytasis</td>
+                <td class="has-text-centered">รายละเอียด Anisocytosis</td>
                 <td class="has-text-centered"><?php echo $objResult['Anisocytasishave']?></td>
             </tr>
             <tr>
-                <td class="has-text-centered">poikilocytosis</td>
+                <td class="has-text-centered">Poikilocytosis</td>
                 <td class="has-text-centered"><?php echo $objResult['poikilocytosis']?></td>
             </tr>
             <tr>
-                <td class="has-text-centered">รายละเอียดอาการ poikilocytosis</td>
+                <td class="has-text-centered">รายละเอียดอาการ Poikilocytosis</td>
                 <td class="has-text-centered"><?php echo $objResult['poikilocytosishave']?></td>
             </tr>
             <tr>
-                <td class="has-text-centered">inclusion</td>
+                <td class="has-text-centered">Inclusion</td>
                 <td class="has-text-centered"><?php echo $objResult['inclusion']?></td>
             </tr>
             <tr>
